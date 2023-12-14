@@ -22,7 +22,7 @@ export const Timer = () => {
 
 			setTimeout(() => {
 				setFlipStates((prevFlipStates) => prevFlipStates.map(() => false))
-			}, 500)
+			}, 750)
 		}, 1000)
 
 		return () => {
