@@ -28,8 +28,8 @@ export default {
 				'red-hat': ['Red Hat Text', 'sans-serif'],
 			},
 			backgroundImage: {
-				stars: "url('./src/assets/images/bg-stars.svg')",
-				hills: "url('./src/assets/images/pattern-hills.svg')",
+				stars: "url('/src/assets/images/bg-stars.svg')",
+				hills: "url('/src/assets/images/pattern-hills.svg')",
 			},
 		},
 	},
