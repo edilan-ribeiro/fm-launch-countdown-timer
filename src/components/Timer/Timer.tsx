@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 import { timeCalculation } from '../../utils/timeCalculation'
 
 export const Timer = () => {
-	const [countdown, setCountdown] = useState(() => timeCalculation())
+	const [countdown, setCountdown] = useState(() => timeCalculation() || [])
 	const [flipStates, setFlipStates] = useState(Array(countdown.length).fill(false))
 
 	useEffect(() => {
 		const updateCountdown = setInterval(() => {
-			const newCountdown = timeCalculation()
+			const newCountdown = timeCalculation() || []
 			setCountdown(newCountdown)
-
+	
 			setFlipStates((prevFlipStates) => {
 				const newFlipStates = [...prevFlipStates]
 				for (let i = 0; i < newCountdown.length; i++) {
@@ -19,20 +19,22 @@ export const Timer = () => {
 				}
 				return newFlipStates
 			})
-
+	
 			setTimeout(() => {
 				setFlipStates((prevFlipStates) => prevFlipStates.map(() => false))
 			}, 750)
 		}, 1000)
-
+	
 		return () => {
 			clearInterval(updateCountdown)
 		}
 	}, [countdown])
 
+	
+
 	return (
-		<div className="flex gap-8 uppercase font-red-hat mt-32 laptop:mt-20 tablet:scale-75 mobile:scale-100 mobile:gap-4 mobile:mt-20 ">
-			{countdown.map((count, index) => {
+		<div className="flex gap-8 uppercase font-red-hat mt-32 laptop:mt-20 tablet:scale-75 mobile:scale-100 mobile:gap-4 mobile:mt-20">
+			{countdown.length === 0 ? <p className="font-red-hat text-4xl text-white duration-300	ease-in">That is all folks!</p>  : countdown.map((count, index) => {
 				const timerID = ['days', 'hours', 'minutes', 'seconds']
 
 				return (

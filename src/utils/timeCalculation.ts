@@ -7,6 +7,10 @@ export const timeCalculation = () => {
 
 	currentDayTime += 1000
 
+	if (totalRemaining <= 0) {
+		return false;
+	}
+
 	const days = Math.floor(totalRemaining / (1000 * 60 * 60 * 24))
 	const hours = Math.floor((totalRemaining / (1000 * 60 * 60)) % 24)
 	const minutes = Math.floor((totalRemaining / (1000 * 60)) % 60)
