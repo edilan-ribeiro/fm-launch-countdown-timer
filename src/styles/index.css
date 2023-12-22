@@ -11,33 +11,3 @@
 		box-shadow: 0px 7px 3px 0px hsl(234, 17%, 12%);
 	}
 }
-
-.topFlip {
-	animation: flipTop 250ms ease-in;
-	transform-style: preserve-3d;
-}
-
-.bottomFlip {
-	transform: rotateX(90deg);
-	animation: flipBottom 500ms ease-out 250ms forwards;
-}
-
-@keyframes flipTop {
-	1% {
-		visibility: visible;
-	}
-	90% {
-		opacity: 0.5;
-	}
-	100% {
-		transform: rotateX(90deg);
-		visibility: hidden;
-	}
-}
-
-@keyframes flipBottom {
-
-	100% {
-		transform: rotateX(0deg);
-	}
-}
